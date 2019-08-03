@@ -11,22 +11,26 @@ public class Main extends PluginBase {
 
             @Override
             public void run() {
-                for (Player p : getServer().getOnlinePlayers().values()) {
-                    StringBuilder str = new StringBuilder();
+                try {
+                    for (Player p : getServer().getOnlinePlayers().values()) {
+                        StringBuilder str = new StringBuilder();
 
-                    int i = 0;
-                    while (i < p.getMaxHealth()) {
-                        if (p.getHealth() > i) {
-                            str.append("\u00A7a|");
-                        } else {
-                            str.append("\u00A7c|");
+                        int i = 0;
+                        while (i < p.getMaxHealth()) {
+                            if (p.getHealth() > i) {
+                                str.append("\u00A7a|");
+                            } else {
+                                str.append("\u00A7c|");
+                            }
+                            i++;
                         }
-                        i++;
-                    }
 
-                    p.setScoreTag(str.toString());
-                }
+                        if (!p.getScoreTag().equals(str.toString())) {
+                            p.setScoreTag(str.toString());
+                        }
+                    }
+                } catch (Exception ignore) {}
             }
-        }, 10, 10);
+        }, 10, 10, true);
     }
 }
