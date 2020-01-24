@@ -1,6 +1,6 @@
 package idk.plugin.healthbar;
 
-import cn.nukkit.Player;
+import cn.nukkit.player.Player;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.scheduler.NukkitRunnable;
 
