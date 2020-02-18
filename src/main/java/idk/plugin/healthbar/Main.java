@@ -16,8 +16,10 @@ public class Main extends PluginBase {
                         StringBuilder str = new StringBuilder();
 
                         int i = 0;
-                        while (i < p.getMaxHealth()) {
-                            if (p.getHealth() > i) {
+                        float hp = p.getHealth();
+                        int maxHp = p.getMaxHealth();
+                        while (i < maxHp) {
+                            if (hp > i) {
                                 str.append("\u00A7a|");
                             } else {
                                 str.append("\u00A7c|");
@@ -25,8 +27,9 @@ public class Main extends PluginBase {
                             i++;
                         }
 
-                        if (!p.getScoreTag().equals(str.toString())) {
-                            p.setScoreTag(str.toString());
+                        String s = str.toString();
+                        if (!p.getScoreTag().equals(s)) {
+                            p.setScoreTag(s);
                         }
                     }
                 } catch (Exception ignore) {}
